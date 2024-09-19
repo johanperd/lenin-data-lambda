@@ -2,6 +2,7 @@ provider "aws" {
   region = "us-east-2"
 }
 
+/*
  #IAM Role for Lambda Execution
  resource "aws_iam_role" "lambda_exec_role_1" {
    name = "lambda_exec_role_1"
@@ -22,6 +23,7 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
   role       = aws_iam_role.lambda_exec_role_1.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
+*/
 
 # Lambda Function
 resource "aws_lambda_function" "lenin-data-lambda" {
@@ -39,6 +41,7 @@ resource "aws_lambda_function" "lenin-data-lambda" {
   source_code_hash = filebase64sha256("lenin-data-lambda.zip")
 }
 
+/*
 # API Gateway HTTP API
 resource "aws_apigatewayv2_api" "api" {
   name          = "my-api"
@@ -72,8 +75,10 @@ resource "aws_lambda_permission" "allow_apigateway" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.lenin-data-lambda.function_name
   principal     = "apigateway.amazonaws.com"
-  source_arn    = "${aws_apigatewayv2_api.api.execution_arn}/*/*"
-}
+  source_arn    = "${aws_apigatewayv2_api.api.execution_arn}
+*/
+
+
 
 # Output API Gateway URL
 output "api_url" {
