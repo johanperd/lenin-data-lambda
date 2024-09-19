@@ -2,6 +2,7 @@ provider "aws" {
   region = "us-east-2"
 }
 
+/*
  #IAM Role for Lambda Execution
  resource "aws_iam_role" "lambda_exec_role_1" {
    name = "lambda_exec_role_1"
@@ -16,6 +17,7 @@ provider "aws" {
      }]
    })
  }
+ */
 
 
 resource "aws_iam_role_policy_attachment" "lambda_basic_execution" {
