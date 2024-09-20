@@ -35,6 +35,7 @@ resource "aws_lambda_function" "lenin-data-lambda" {
     variables = {
       OTEL_EXPORTER_OTLP_ENDPOINT = "https://otlp-gateway-prod-us-east-0.grafana.net/otlp"
       OTEL_EXPORTER_OTLP_LOGS_ENDPOINT = "https://otlp-gateway-prod-us-east-0.grafana.net/otlp"
+      NODE_OPTIONS = "--require /config-sdk"
     }
   }
   source_code_hash = filebase64sha256("lenin-data-lambda.zip")
